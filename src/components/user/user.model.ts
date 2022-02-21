@@ -2,7 +2,7 @@ import Common from '../../utils/common';
 import { ICreateUser, IUser, IUserSerialized } from './user.interfaces';
 
 class User {
-  static tableName = 'users';
+  static tableName: string = 'users';
 
   static async findOneById(id: number): Promise<IUserSerialized | null>{
     const rows = await Common.dbFetch(User.tableName, { id });

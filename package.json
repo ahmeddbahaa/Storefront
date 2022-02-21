@@ -15,7 +15,7 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "test": "export NODE_ENV=test && npm run migrate:up > /dev/null && jasmine-ts && npm run migrate:reset > /dev/null"
   },
-  "author": "Elshafeay",
+  "author": "Ahmed bahaa",
   "license": "ISC",
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",

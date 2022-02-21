@@ -24,6 +24,7 @@ class UserController {
       email,
       password,
     } = req.body;
+    console.log(req.body);
 
     const existingUser = await User.findOneByEmail(email);
 
