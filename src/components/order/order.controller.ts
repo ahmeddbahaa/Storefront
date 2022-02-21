@@ -16,9 +16,9 @@ class OrderController {
   }
   async create(req: Request, res: Response): Promise<void>{
     const {user_id, order_status} = req.body;
-    const order: ICreateOrder = { user_id, order_status};
-    const ret = await Order.create(order);
-    res.status(201).send(ret);
+    const dataObject: ICreateOrder = { user_id, order_status};
+    const order = await Order.create(dataObject);
+    res.status(201).send(order);
   }
 }
 export default new OrderController();

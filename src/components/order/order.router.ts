@@ -1,10 +1,12 @@
 import express from 'express';
+import { validateRequest } from '../../middlewares/validate-request';
 import OrderController from './order.controller';
+import { getOrderValidation } from './order.schema';
 
 const orderRouter = express.Router();
 
 orderRouter.get('/orders', OrderController.getOrders);
-orderRouter.get('/orders/:id', OrderController.getOrderById);
+orderRouter.get('/orders/:id', validateRequest(getOrderValidation),OrderController.getOrderById);
 orderRouter.post('/orders', OrderController.create);
 
 export default orderRouter;
