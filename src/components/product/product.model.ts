@@ -8,10 +8,8 @@ class Product {
     const insertQUery = await Common.dbInsertion(Product.tableName, product);
     if(insertQUery && insertQUery.inserted){
       const newProduct = insertQUery.data[0] as IProduct;
-      console.log(newProduct);
       return newProduct;
     }else{
-      console.log(insertQUery);
       return null;
     }
   }
