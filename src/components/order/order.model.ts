@@ -1,5 +1,7 @@
 import Common from '../../utils/common';
-import { ICreateOrder, IOrder, IOrderSeralized } from './order.interfaces';
+import { IProduct, IProductSerialized } from '../product/product.interfaces';
+import { ICreateOrder, IOrder, IOrderProduct, IOrderProductSeralized, IOrderSeralized }
+  from './order.interfaces';
 
 class Order {
   static tableName: string = 'orders';
@@ -25,6 +27,16 @@ class Order {
     if(rows?.length){
       const order = rows[0] as IOrderSeralized;
       return order;
+    }else{
+      return null;
+    }
+  }
+
+  static async addProduct(order_product: IOrderProduct): Promise<IOrderProductSeralized | null> {
+    const insertedQuery = await Common.dbInsertion('order_products', order_product);
+    if(insertedQuery && insertedQuery.inserted){
+      const orderProduct = insertedQuery.data[0] as IOrderProductSeralized;
+      return orderProduct;
     }else{
       return null;
     }
