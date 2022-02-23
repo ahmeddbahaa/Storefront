@@ -1,6 +1,7 @@
 import { Request, Response} from 'express';
 import Product from './product.model';
 import { ICreateProduct, IProductSerialized } from './product.interfaces';
+import jwt from 'jsonwebtoken';
 class ProductController {
 
   async getProductById(req: Request, res: Response): Promise<void>{
@@ -18,7 +19,6 @@ class ProductController {
 
   async create(req: Request, res: Response): Promise<void>{
     let {name,price,category_id} = req.body;
-    console.log(req.body);
     price = parseInt(price);
     let dataObject:ICreateProduct;
     if(category_id==undefined)
@@ -27,7 +27,6 @@ class ProductController {
       dataObject = {name,price,category_id};
     }
     const product = await Product.create(dataObject);
-    console.log(product);
     res.status(201).send(product);
   }
 }

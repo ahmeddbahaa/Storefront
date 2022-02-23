@@ -19,11 +19,24 @@ class User {
 
   static async findOneByEmail(email: string): Promise<IUser | null>{
     const rows = await Common.dbFetch(User.tableName, { email });
-    if(rows?.length){
-      return rows[0] as IUser;
-    }else{
+    if(rows == undefined)
       return null;
+    if(rows.length){
+      return rows[0] as IUser;
     }
+    return null;
+  }
+  static async findOneByEmailAndPassword(email: string, password: string): Promise<IUser | null>{
+    const user = await Common.dbFetch(User.tableName, { email });
+    console.log(user, password);
+    const rows = await Common.dbFetch(User.tableName, { email, password});
+    console.log(rows);
+    if(rows == undefined)
+      return null;
+    if(rows.length){
+      return rows[0] as IUser;
+    }
+    return null;
   }
 
   static async findAll(): Promise<IUserSerialized[]>{

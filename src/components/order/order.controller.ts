@@ -15,6 +15,22 @@ class OrderController {
       res.send(order);
     }
   }
+  async getUserOrders(req: Request, res: Response): Promise<void> {
+    const order = await Order.findUserOrders(+req.params.user_id);
+    if (!order) {
+      res.status(400).send('Order Not Found');
+    } else {
+      res.send(order);
+    }
+  }
+  async getCompleteUserOrders(req: Request, res: Response): Promise<void> {
+    const order = await Order.findCompeleteOrders(+req.params.user_id);
+    if (!order) {
+      res.status(400).send('Order Not Found');
+    } else {
+      res.send(order);
+    }
+  }
   async getOrders(req: Request, res: Response): Promise<void> {
     const orders = await Order.findAll();
     res.send(orders);

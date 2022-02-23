@@ -8,3 +8,10 @@ export const getOrderValidation: IValidationSchema = {
       .required(),
   }).required(),
 };
+export const getUserOrdersValidation: IValidationSchema = {
+  params: Joi.object({
+    user_id: Joi
+      .number()
+      .required(),
+  }).required(),
+};
