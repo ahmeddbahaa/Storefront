@@ -8,12 +8,12 @@
 
 ## Description
 
-This is a boilerplate Project for Typescript.
+This's Storefront Api Project that provides Api Endpoints as Required by the requirements file
 It features the use of **Typescript**, **Sequelize**, **PostgreSQL**, **Jasmine**, **Winston & Morgan**, **Joi**, and **Eslint**.
 
 ## Prerequisites
 Your machine must have the following installed on it:
-- [Node/NPM](https://nodejs.org/en/download/) (v16 or higher)
+- [Node/NPM](https://nodejs.org/en/download/) (v14 or higher)
 
 ## Instructions
 
@@ -32,7 +32,6 @@ Now, replace .env with your credentials and then run
 ``` 
 npm run migrate:up
 ```
-
 ### 3. Starting the project
 ```
 npm start

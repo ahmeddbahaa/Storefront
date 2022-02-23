@@ -56,7 +56,7 @@ class UserController {
       return;
     }
     const token = jwt.sign({user: user}, process.env.JWT_KEY as jwt.Secret);
-    res.header({Authorization: 'Bearer ' + token}).send(token);
+    res.header({Authorization: 'Bearer ' + token}).send({status:'ok',token:token});
   }
 }
 

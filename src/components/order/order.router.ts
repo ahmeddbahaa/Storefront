@@ -12,7 +12,7 @@ orderRouter.get('/orders/user/:user_id', authRouter, validateRequest(getUserOrde
 orderRouter.get('/orders/user/:user_id/complete', authRouter,
   validateRequest(getUserOrdersValidation), OrderController.getCompleteUserOrders);
 orderRouter.get('/orders/:id', validateRequest(getOrderValidation), OrderController.getOrderById);
-orderRouter.post('/orders', OrderController.create);
-orderRouter.post('/orders/:id/products', OrderController.addProduct);
+orderRouter.post('/orders', authRouter, OrderController.create);
+orderRouter.post('/orders/:id/products', authRouter, OrderController.addProduct);
 
 export default orderRouter;
