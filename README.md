@@ -35,7 +35,7 @@ Now, replace .env with your credentials and then run
 npm run migrate:up
 ```
 ### 3. Starting the project
-Make sure to have Port 3000 available for Epress server and port 5423 for PostgreSQL server 
+Make sure to have Port 3000 available for Express server and port 5423 for PostgreSQL server 
 ```
 npm start
 ```
