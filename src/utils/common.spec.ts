@@ -5,12 +5,12 @@ import {addTestUser} from '../../spec/utils/index';
 
 describe('[E2E] Database Operations', function() {
 
-  describe('Create Operation', function() {
+  describe('Insert Database Operation', function() {
     beforeAll(async() => {
       await truncateDB();
     });
     // Success scenarios
-    it(' Creates a Test User', async function() {
+    it('Insert a Test User', async function() {
       // status code should be 201 `Created`
       const testUser:ICreateUser = {
         firstname: 'test',
@@ -22,7 +22,7 @@ describe('[E2E] Database Operations', function() {
       expect(user?.data[0]).toBeTruthy();
     });
   });
-  describe('Fetch Operation', function() {
+  describe('Select Database Operation', function() {
     beforeAll(async() => {
       await truncateDB();
     });
